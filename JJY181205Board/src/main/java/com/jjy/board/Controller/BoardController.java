@@ -249,6 +249,12 @@ public class BoardController {
 		model.addAttribute("issuescategories", igService.getIssueCategories(project_id));
 		return "IssuesCategories";
 	}
+	//프로젝트에서 일감 추가
+		@RequestMapping(value = "/createCategories", method = RequestMethod.POST)
+		public String createissueCategories(String project_id, String name1) {
+			igService.createIssueCategories(project_id,name1);
+			return "IssuesCategories";
+		}
 
 	@RequestMapping(value = "/Roles", method = RequestMethod.GET)
 	public String Roles() {

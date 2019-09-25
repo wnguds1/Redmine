@@ -199,15 +199,44 @@ $(function(){
             </div>
           </div>
           </div>
-          
-          
+                
+ <div class="row mt">
+          <div class="col-lg-12">
+            <div class="form-panel">
+            <h3>Creating Issue Categories</h3>
+              <div class=" form">
+                <form class="cmxform form-horizontal style-form" id="commentForm" method="POST" action="createCategories">
+                  <div class="form-group ">
+                    <label for="cname" class="control-label col-lg-2" >프로젝트 아이디 (required)</label>
+                    <div class="col-lg-10">
+                      <input class=" form-control" id="cname" name="project_id" type="text" value="ex)http" />
+                    </div>
+                  </div>
+               
      
-      
+                  <div class="form-group ">
+                    <label for="cemail" class="control-label col-lg-2">일감범주 이름 (required)</label>
+                    <div class="col-lg-10">
+                      <input class="form-control " id="cemail" type="text" name="name1" value="ex)http2" required />
+                    </div>
+                  </div>
+                
+                  
+                  <div class="form-group">
+                    <div class="col-lg-offset-2 col-lg-10">
+                      <button class="btn btn-theme" type="submit">Create</button>
+                      <button class="btn btn-theme04" type="reset">Reset</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <!-- /form-panel -->
+          </div>
+          <!-- /col-lg-12 -->
+        </div>
           
-          
-       
-
-      
+  
         <!-- /row -->
       </section>
       <!-- /wrapper -->
