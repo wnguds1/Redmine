@@ -29,23 +29,29 @@
   <!-- Custom styles for this template -->
   <link href="resources/css/style.css" rel="stylesheet">
   <link href="resources/css/style-responsive.css" rel="stylesheet">
+<script>
 
-  <!-- =======================================================
-    Template Name: Dashio
-    Template URL: https://templatemag.com/dashio-bootstrap-admin-template/
-    Author: TemplateMag.com
-    License: https://templatemag.com/license/
-  ======================================================= -->
-  <script>
-$(document).ready(function(){
-  $("#myInput").on("keyup", function() {
-    var value = $(this).val().toLowerCase();
-    $("#myTable tr").filter(function() {
-      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-    });
-  });
-});
+$(function(){
+	var qs = new Array();
+	qs = ${qeuries}
+	
+	
+	
+	
+	
+	$.each(qs.issues, function(idx, issues){
+		var $tq = $("<tr></tr>").appendTo($("#qutable"))
+		$("<td></td>").text(issues.id).appendTo($tq)
+		$("<td></td>").text(issues.project.name).appendTo($tq)
+		$("<td></td>").text(issues.subject).appendTo($tq)
+		$("<td></td>").text(issues.author.name).appendTo($tq)
+		$("<td></td>").text(issues.tracker.name).appendTo($tq)
+		$("<td></td>").text(issues.priority.name).appendTo($tq)
+
+	})
+})   
 </script>
+ 
 </head>
 
 <body>
@@ -62,8 +68,6 @@ $(document).ready(function(){
       <a href="https://www.processware.co.kr" class="logo"><strong>Processware</strong></a>
       <!--logo end-->
      
-     
-   
       <div class="top-menu">
         <ul class="nav pull-right top-menu">
           <li><a class="logout" href="login.html">Logout</a></li>
@@ -157,7 +161,6 @@ $(document).ready(function(){
         <!-- sidebar menu end-->
       </div>
     </aside>
-    <!-- 여기위에 고정 -->
     <!--sidebar end-->
     <!-- **********************************************************************************************************************************************************
         MAIN CONTENT
@@ -165,122 +168,49 @@ $(document).ready(function(){
     <!--main content start-->
     <section id="main-content">
       <section class="wrapper">
-        <h3> Issues</h3>
-        <div class="row mt">
-          <!--  DATE PICKERS -->
-          <div class="col-lg-12">
+        <h3> Queries </h3>
+          <!-- page end-->
+ 
+  
+              <div class="row mt">
+          <div class="col-md-12">
             <div class="form-panel">
-              <form action="#" class="form-horizontal style-form">
-                <div class="form-group">
-                  <label class="control-label col-md-3">Listing issues</label>
-                  <div class="col-md-3 col-xs-11">
-                    <button type="button" class="btn btn-theme date-set" value ="불러오기 ">불러오기</button>
-                    <br>
-                    <br>
-          
-                  
-  
-  <input class="form-control" id="myInput" type="text" placeholder="Search.." >
-  <br>
-  <table class="table table-bordered">
-    <thead>
-      <tr>
-        <th>Firstname</th>
-        <th>Lastname</th>
-        <th>Email</th>
-       
+             <h3>프로젝트에서 일감꺼내기</h3>  
+            
+          <form action= "Queries" method="get">
+          <input type ="text" name="project_id">
+          <button type ="submit">프로젝트 조회</button>
+          </form>
+              
+              <hr>
+              <table id="qutable">
+                <thead>
+                  <tr>
+                    <th>이슈 번호</th>
+                    <th>해당 프로젝트</th>
+                    <th>이슈 이름</th>
+                    <th>일감 작성자</th>
+                    <th>이슈 유형</th>
+                    <th>이슈 상태</th>
         
-      </tr>
-    </thead>
-    <tbody id="myTable" >
-      <tr>
-        <td>John</td>
-        <td>Doe</td>
-        <td>john@example.com
-      </tr>
-      <tr>
-        <td>Mary</td>
-        <td>Moe</td>
-        <td>mary@mail.com</td>
-      </tr>
-      <tr>
-        <td>July</td>
-        <td>Dooley</td>
-        <td>july@greatstuff.com</td>
-      </tr>
-      <tr>
-        <td>Anja</td>
-        <td>Ravendale</td>
-        <td>a_r@test.com</td>
-      </tr>
-   
-      
-    </tbody>
-  </table>
-  
-  <p>데이터가 많을 시 속도가 저하 될 수 있습니다.</p>
-
-                      
-                  </div>
-                </div>
-                  <div class="form-group">
-                  <label class="control-label col-md-3">Showing an issues</label>
-                  <div class="col-md-3 col-xs-11">
-                    <input class="form-control form-control-inline input-medium " size="6" type="text" value="">
-                    <span class="help-block"></span>
-                  </div>
-                </div>
-                  <div class="form-group">
-                  <label class="control-label col-md-3">Creating an issues</label>
-                  <div class="col-md-3 col-xs-11">
-                    <input class="form-control form-control-inline input-medium " size="16" type="text" value="">
-                    <span class="help-block"></span>
-                  </div>
-                </div>
-                  <div class="form-group">
-                  <label class="control-label col-md-3">Updating an issues</label>
-                  <div class="col-md-3 col-xs-11">
-                    <input class="form-control form-control-inline input-medium " size="16" type="text" value="">
-                    <span class="help-block"></span>
-                  </div>
-                </div>
-                  <div class="form-group">
-                  <label class="control-label col-md-3">Deleting and issues</label>
-                  <div class="col-md-3 col-xs-11">
-                    <input class="form-control form-control-inline input-medium " size="16" type="text" value="">
-                    <span class="help-block"></span>
-                  </div>
-                </div>
-                  <div class="form-group">
-                  <label class="control-label col-md-3">Adding a watcher</label>
-                  <div class="col-md-3 col-xs-11">
-                    <input class="form-control form-control-inline input-medium " size="16" type="text" value="">
-                    <span class="help-block"></span>
-                  </div>
-                </div>
-                  <div class="form-group">
-                  <label class="control-label col-md-3">Removing a watcher</label>
-                  <div class="col-md-3 col-xs-11">
-                    <input class="form-control form-control-inline input-medium " size="16" type="text" value="">
-                    <span class="help-block"></span>
-                  </div>
-                </div>
-                
-              </form>
+                  </tr>
+                </thead>
+              
+              </table>
             </div>
-            <!-- /form-panel -->
           </div>
-          <!-- /col-lg-12 -->
-        </div>
+          </div>
+          
+          
+
         <!-- /row -->
-        </section>
-        </section>
-        <!-- DATE TIME PICKERS -->
-       
+      </section>
+      <!-- /wrapper -->
+    </section>
     <!-- /MAIN CONTENT -->
     <!--main content end-->
     <!--footer start-->
-    <footer class="site-footer">
+       <footer class="site-footer">
       <div class="text-center">
         <p>
           &copy;  2019 by PROCESSWARE Co. Ltd. 
@@ -301,7 +231,7 @@ $(document).ready(function(){
     </footer>
     <!--footer end-->
   </section>
-  <!-- js placed at the end of the document so the pages load faster -->
+   <!-- js placed at the end of the document so the pages load faster -->
   <script src="resources/lib/jquery/jquery.min.js"></script>
   <script src="resources/lib/bootstrap/js/bootstrap.min.js"></script>
   <script class="include" type="text/javascript" src="resources/lib/jquery.dcjqaccordion.2.7.js"></script>
@@ -319,6 +249,7 @@ $(document).ready(function(){
   <script type="text/javascript" src="resources/lib/bootstrap-daterangepicker/moment.min.js"></script>
   <script type="text/javascript" src="resources/lib/bootstrap-timepicker/js/bootstrap-timepicker.js"></script>
   <script src="resources/lib/advanced-form-components.js"></script>
+  
 
 </body>
 
