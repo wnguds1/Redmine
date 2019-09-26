@@ -30,6 +30,11 @@
   <link href="resources/css/style.css" rel="stylesheet">
   <link href="resources/css/style-responsive.css" rel="stylesheet">
   
+   <style>
+ .form-panel{
+ margin:1px;
+ }
+ </style>
 <script>
 $(function(){
 	var pro = new Array();
@@ -42,7 +47,11 @@ $(function(){
 		$("<td></td>").text(projects.id).appendTo($ta)
 		$("<td></td>").text(projects.name).appendTo($ta)
 		$("<td></td>").text(projects.identifier).appendTo($ta)
-		$("<td></td>").text(projects.creatded_on).appendTo($ta)
+		$("<td></td>").text(projects.description).appendTo($ta)
+		$("<td></td>").text(projects.status).appendTo($ta)
+		$("<td></td>").text(projects.is_public).appendTo($ta)
+		$("<td></td>").text(projects.created_on).appendTo($ta)
+		$("<td></td>").text(projects.updated_on).appendTo($ta)
 	})
 })  
 </script>
@@ -124,7 +133,7 @@ $(function(){
           
                 
            <li class="sub-menu">
-            <a href="javascript:;">
+            <a class="active" href="javascript:;">
               <i class="fa fa-th"></i>
               <span>Restapi For Redmine</span> 
               </a>
@@ -161,27 +170,26 @@ $(function(){
         MAIN CONTENT
         *********************************************************************************************************************************************************** -->
     <!--main content start-->
-    <section id="main-content">
+      <section id="main-content">
       <section class="wrapper">
-        <h3> Projects </h3>
-          <!-- page end-->
- 
-     
-              <div class="row mt">
+        <h3><i class="fa fa-angle-right"></i> Projects</h3>
+        <div class="row">
           <div class="col-md-12">
-            <div class="form-panel">
-             <h3>Lisiting projects</h3>  
-            
-          
-              
-              <hr>
-              <table id="ProjectTable">
+            <div class="content-panel">
+              <h4>Listing Projects</h4>
+              <hr width="99.5%">
+              <table class="table" id="ProjectTable">
                 <thead>
                   <tr>
                     <th>프로젝트 번호</th>
                     <th>프로젝트 이름</th>
-                    <th>프로젝트 아이덴티</th>
-                    <th>프로젝트 생성일</th>
+                    <th>식별자</th>
+                    <th>덧글</th>
+                    <th>상태</th>
+                    <th>공개여부</th>
+                    <th>생성일</th>
+                    <th>업데이트일</th>
+                    
                      
                   </tr>
                 </thead>
@@ -195,11 +203,12 @@ $(function(){
  <div class="row mt">
           <div class="col-lg-12">
             <div class="form-panel">
-            <h3>Creating project</h3>
+            <h4>Creating project</h4>
+                <hr width="100%">
               <div class=" form">
                 <form class="cmxform form-horizontal style-form" id="commentForm" method="POST" action="createProject">
                   <div class="form-group ">
-                    <label for="cname" class="control-label col-lg-2" >프로젝트 아이디 (required)</label>
+                    <label for="cname" class="control-label col-lg-2" >프로젝트 번호 (required)</label>
                     <div class="col-lg-10">
                       <input class=" form-control" id="cname" name="id" minlength="2" type="text" required />
                     </div>

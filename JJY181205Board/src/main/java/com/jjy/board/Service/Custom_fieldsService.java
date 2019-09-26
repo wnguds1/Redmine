@@ -7,23 +7,21 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.util.EntityUtils;
 
-public class QueriesService {
-public String getprjectIssues() {
-		
+public class Custom_fieldsService {
+	public String getCustomFields() {
 		try {
 			HttpClient client = HttpClientBuilder.create().build(); // HttpClient 생성
-			HttpGet postRequest = new HttpGet("http://121.170.229.141:80/redmine/queries.json?key=913ba49271142777cf93cd97a53064fdf717f35d"); //POST 메소드 URL 새성 
+			HttpGet postRequest = new HttpGet("http://localhost:80/redmine/custom_fields.json?key=604a7786d7a980ab3f223165ee2bae9a9e53a366"); //POST 메소드 URL 새성 
 			postRequest.setHeader("Accept", "application/json");
 			postRequest.setHeader("Connection", "keep-alive");
 			postRequest.setHeader("Content-Type", "application/json;charset=UTF-8");
-		
-						
+			
 			HttpResponse response = client.execute(postRequest);
 			
 			//오류테스트
 			HttpEntity entity = response.getEntity();
 			String responseString = EntityUtils.toString(entity, "UTF-8");
-			System.out.println("서비스"+responseString);
+			System.out.println("responseString----->"+responseString);
 			
 		
 			if (response.getStatusLine().getStatusCode() == 200) {

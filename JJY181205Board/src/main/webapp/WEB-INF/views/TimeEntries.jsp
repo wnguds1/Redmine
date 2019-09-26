@@ -31,15 +31,11 @@
   <link href="resources/css/style-responsive.css" rel="stylesheet">
 
   
-<style>
-  .modal-header, h4, .close {
-    text-align: center;
-    font-size: 20px;
-  }
-  .modal-footer {
-    background-color: #f9f9f9;
-  }
-  </style>
+   <style>
+ .form-panel{
+ margin:1px;
+ }
+ </style>
   <!--script for this page-->
 <script>
 $(function(){
@@ -52,19 +48,15 @@ $(function(){
 	$.each(te.time_entries, function(idx, time_entries){
 		var $tte = $("<tr></tr>").appendTo($("#time_entriesTable"))
 		$("<td></td>").text(time_entries.id).appendTo($tte)
-		$("<td></td>").text(time_entries.project.id).appendTo($tte)
 		$("<td></td>").text(time_entries.project.name).appendTo($tte)
 		$("<td></td>").text(time_entries.issue.id).appendTo($tte)
-		$("<td></td>").text(time_entries.user.id).appendTo($tte)
 		$("<td></td>").text(time_entries.user.name).appendTo($tte)
-		$("<td></td>").text(time_entries.activity.id).appendTo($tte)
 		$("<td></td>").text(time_entries.activity.name).appendTo($tte)
 		$("<td></td>").text(time_entries.hours).appendTo($tte)
 		$("<td></td>").text(time_entries.comments).appendTo($tte)
 		$("<td></td>").text(time_entries.spent_on).appendTo($tte)
 		$("<td></td>").text(time_entries.created_on).appendTo($tte)
 		$("<td></td>").text(time_entries.updated_on).appendTo($tte)
-		console.log(time_entries.activity.name)
 	})
 })  
 </script>
@@ -101,7 +93,7 @@ $(function(){
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
        <li class="mt">
-            <a class="active" href="Index">
+            <a href="Index">
               <i class="fa fa-dashboard"></i>
               <span>DashBoard</span>
               </a>
@@ -146,7 +138,7 @@ $(function(){
           
                 
            <li class="sub-menu">
-            <a href="javascript:;">
+            <a class="active"href="javascript:;">
               <i class="fa fa-th"></i>
               <span>Restapi For Redmine</span> 
               </a>
@@ -183,35 +175,28 @@ $(function(){
         MAIN CONTENT
         *********************************************************************************************************************************************************** -->
     <!--main content start-->
-    <section id="main-content">
+     <section id="main-content">
       <section class="wrapper">
-        <h3> Time Entries </h3>
-          <!-- page end-->
- 
-     
-              <div class="row mt">
+        <h3><i class="fa fa-angle-right"></i> Time Entries</h3>
+        <div class="row">
           <div class="col-md-12">
-            <div class="form-panel">
-             <h3>Lisiting Time Entries</h3>  
-            
-          
-              
-              <hr>
-              <table id="time_entriesTable">
+            <div class="content-panel">
+              <h4>Listing Time Entries</h4>
+              <hr width="99.5%">
+              <table class="table" id="time_entriesTable">
                 <thead>
                   <tr>
-                    <th>소요시간 고유아이디</th>
-                    <th>해당 프로젝트 아이디</th>
-                    <th>해당 프로젝트 이름</th>
-                    <th>해당 이슈 번호</th>
-                    <th>사용자 아이디 번호</th>
-                    <th>사용자 아이디</th>
-                    <th>활도 아이디</th>
+        
+                    <th>소요시간 아이디</th>
+                    <th>프로젝트 이름</th>
+                    <th>이슈 번호</th>
+                    <th>사용자</th>
+                    <th>활동</th>
                     <th>소요 시간</th>
                     <th>의견</th>
                     <th>작성일</th>
-                    <th>소요시간 작성시간</th>
-                    <th>소요시간 업데이트시간</th>
+                    <th>작성시간</th>
+                    <th>업데이트시간</th>
                     
                      
                   </tr>
@@ -226,11 +211,11 @@ $(function(){
  <div class="row mt">
           <div class="col-lg-12">
             <div class="form-panel">
-            <h3>Creating Time Entries</h3>
+            <h4>Creating Time Entries</h4>
               <div class=" form">
                 <form class="cmxform form-horizontal style-form" id="commentForm" method="POST" action="createTimeEntries">
                   <div class="form-group ">
-                    <label for="cname" class="control-label col-lg-2" >이슈 아이디 (required)</label>
+                    <label for="cname" class="control-label col-lg-2" >이슈 번호 (required)</label>
                     <div class="col-lg-10">
                       <input class=" form-control" id="cname" name="issue_id" minlength="1" type="text" required />
                     </div>
@@ -248,9 +233,11 @@ $(function(){
                     </div>
                   </div>
                    <div class="form-group ">
-                    <label for="cemail" class="control-label col-lg-2">활동 아이디 (required)</label>
+                    <label for="cemail" class="control-label col-lg-2">활동 번호 (required)</label>
                     <div class="col-lg-10">
                       <input class="form-control " id="cemail" type="text" name="activity_id" required />
+                      <br>
+                      <p>ex)설계(8), 개발(9)</p>
                     </div>
                   </div>
                   <div class="form-group ">

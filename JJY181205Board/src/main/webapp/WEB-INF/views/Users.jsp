@@ -29,6 +29,11 @@
   <!-- Custom styles for this template -->
   <link href="resources/css/style.css" rel="stylesheet">
   <link href="resources/css/style-responsive.css" rel="stylesheet">
+   <style>
+ .form-panel{
+ margin:1px;
+ }
+ </style>
 <script>
 $(function(){
 	var us = new Array();
@@ -83,7 +88,7 @@ $(function(){
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
        <li class="mt">
-            <a class="active" href="Index">
+            <a  href="Index">
               <i class="fa fa-dashboard"></i>
               <span>DashBoard</span>
               </a>
@@ -128,7 +133,7 @@ $(function(){
           
                 
            <li class="sub-menu">
-            <a href="javascript:;">
+            <a class="active" href="javascript:;">
               <i class="fa fa-th"></i>
               <span>Restapi For Redmine</span> 
               </a>
@@ -167,19 +172,13 @@ $(function(){
     <!--main content start-->
     <section id="main-content">
       <section class="wrapper">
-        <h3> Projects </h3>
-          <!-- page end-->
- 
-     
-              <div class="row mt">
+        <h3><i class="fa fa-angle-right"></i> Users</h3>
+        <div class="row">
           <div class="col-md-12">
-            <div class="form-panel">
-             <h3>Lisiting projects</h3>  
-            
-          
-              
-              <hr>
-              <table id="UserTable">
+            <div class="content-panel">
+              <h4>Listing Users</h4>
+              <hr width="99.5%">
+              <table class="table"id="UserTable">
                 <thead>
                   <tr>
                     <th>유저 아이디 번호</th>
@@ -203,7 +202,8 @@ $(function(){
  <div class="row mt">
           <div class="col-lg-12">
             <div class="form-panel">
-            <h3>Creating Users</h3>
+            <h4>Creating Users</h4>
+            <hr width="100%">
               <div class=" form">
                 <form class="cmxform form-horizontal style-form" id="commentForm" method="POST" action="createUsers">
                   <div class="form-group ">

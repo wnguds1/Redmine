@@ -33,20 +33,19 @@
 
 $(function(){
 	var qs = new Array();
-	qs = ${qeuries}
+	qs = ${queries}
 	
 	
 	
 	
 	
-	$.each(qs.issues, function(idx, issues){
+	$.each(qs.queries, function(idx, queries){
 		var $tq = $("<tr></tr>").appendTo($("#qutable"))
-		$("<td></td>").text(issues.id).appendTo($tq)
-		$("<td></td>").text(issues.project.name).appendTo($tq)
-		$("<td></td>").text(issues.subject).appendTo($tq)
-		$("<td></td>").text(issues.author.name).appendTo($tq)
-		$("<td></td>").text(issues.tracker.name).appendTo($tq)
-		$("<td></td>").text(issues.priority.name).appendTo($tq)
+		$("<td></td>").text(queries.id).appendTo($tq)
+		$("<td></td>").text(queries.name).appendTo($tq)
+		$("<td></td>").text(queries.is_public).appendTo($tq)
+		$("<td></td>").text(queries.project_id).appendTo($tq)
+
 
 	})
 })   
@@ -175,23 +174,17 @@ $(function(){
               <div class="row mt">
           <div class="col-md-12">
             <div class="form-panel">
-             <h3>프로젝트에서 일감꺼내기</h3>  
-            
-          <form action= "Queries" method="get">
-          <input type ="text" name="project_id">
-          <button type ="submit">프로젝트 조회</button>
-          </form>
-              
+             <h3>Queries</h3>  
+             
               <hr>
               <table id="qutable">
                 <thead>
                   <tr>
-                    <th>이슈 번호</th>
-                    <th>해당 프로젝트</th>
-                    <th>이슈 이름</th>
-                    <th>일감 작성자</th>
-                    <th>이슈 유형</th>
-                    <th>이슈 상태</th>
+                    <th>쿼리 아이디</th>
+                    <th>쿼리 이름</th>
+                    <th>공개여부</th>
+                    <th>프로젝트 아이디</th>
+                    
         
                   </tr>
                 </thead>

@@ -29,6 +29,13 @@
   <!-- Custom styles for this template -->
   <link href="resources/css/style.css" rel="stylesheet">
   <link href="resources/css/style-responsive.css" rel="stylesheet">
+    
+   <style>
+ .form-panel{
+ margin:1px;
+ }
+ </style>
+
 <script>
 $(function(){
 	var isr = new Array();
@@ -80,7 +87,7 @@ $(function(){
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
        <li class="mt">
-            <a class="active" href="Index">
+            <a  href="Index">
               <i class="fa fa-dashboard"></i>
               <span>DashBoard</span>
               </a>
@@ -125,7 +132,7 @@ $(function(){
           
                 
            <li class="sub-menu">
-            <a href="javascript:;">
+            <a class="active" href="javascript:;">
               <i class="fa fa-th"></i>
               <span>Restapi For Redmine</span> 
               </a>
@@ -162,24 +169,22 @@ $(function(){
         MAIN CONTENT
         *********************************************************************************************************************************************************** -->
     <!--main content start-->
-    <section id="main-content">
+  <section id="main-content">
       <section class="wrapper">
-        <h3> Issue Relations </h3>
-          <!-- page end-->
- 
-     
-              <div class="row mt">
+        <h3><i class="fa fa-angle-right"></i> IssueRelations</h3>
+        <div class="row">
           <div class="col-md-12">
-            <div class="form-panel">
-             <h3>Lisiting Issue Relations</h3>  
+            <div class="content-panel">
+              <h4>Listing IssueRelations</h4>
+              <hr width="99.5%">
             
           
               <form action="IssueRelations" method="get">
-              <input type="text" name="connectissue">
-              <button type="submit" >이슈조회</button>
+              &nbsp;&nbsp;&nbsp;<input type="text" name="connectissue">
+              <button type="submit" class="btn btn-primary btn-sm" >일감조회</button>
               </form>
               <hr>
-              <table id="relationsTable">
+              <table class="table"id="relationsTable">
                 <thead>
                   <tr>
                     <th>연결 순서 </th>
@@ -201,7 +206,8 @@ $(function(){
  <div class="row mt">
           <div class="col-lg-12">
             <div class="form-panel">
-            <h3>Creating Issues Relations</h3>
+            <h4>Creating Issues Relations</h4>
+            <hr>
               <div class=" form">
                 <form class="cmxform form-horizontal style-form" id="commentForm" method="POST" action="createIssueRelation">
                   <div class="form-group ">
@@ -226,8 +232,10 @@ $(function(){
                     <label for="cemail" class="control-label col-lg-2">연결 타입 (required)</label>
                     <div class="col-lg-10">
                       <input class="form-control " id="cemail" type="text" name="relation_type" required />
+                      <br>
+                      &nbsp;&nbsp;&nbsp;<p>ex)"relates", "duplicates", "duplicated", "blocks", "blocked", "precedes", "follows", "copied_to", "copied_from"</p>
                     </div>
-                    <p>"relates", "duplicates", "duplicated", "blocks", "blocked", "precedes", "follows", "copied_to", "copied_from"</p>
+                    
                   </div>
                   
                   <div class="form-group">

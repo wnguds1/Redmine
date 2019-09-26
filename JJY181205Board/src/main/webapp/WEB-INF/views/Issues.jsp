@@ -29,6 +29,11 @@
   <!-- Custom styles for this template -->
   <link href="resources/css/style.css" rel="stylesheet">
   <link href="resources/css/style-responsive.css" rel="stylesheet">
+ <style>
+ .form-panel{
+ margin:1px;
+ }
+ </style>
 <script>
 $(function(){
 	var iss = new Array();
@@ -41,10 +46,17 @@ $(function(){
 		var $tr = $("<tr></tr>").appendTo($("#issuetable"))
 		$("<td></td>").text(issues.id).appendTo($tr)
 		$("<td></td>").text(issues.project.name).appendTo($tr)
-		$("<td></td>").text(issues.subject).appendTo($tr)
-		$("<td></td>").text(issues.author.name).appendTo($tr)
 		$("<td></td>").text(issues.tracker.name).appendTo($tr)
+		$("<td></td>").text(issues.status.name).appendTo($tr)
 		$("<td></td>").text(issues.priority.name).appendTo($tr)
+		$("<td></td>").text(issues.author.name).appendTo($tr)
+		$("<td></td>").text(issues.subject).appendTo($tr)
+		$("<td></td>").text(issues.start_date).appendTo($tr)
+		$("<td></td>").text(issues.due_date).appendTo($tr)
+		$("<td></td>").text(issues.done_ratio).appendTo($tr)
+		$("<td></td>").text(issues.estimated_hours).appendTo($tr)
+		$("<td></td>").text(issues.created_on).appendTo($tr)
+		$("<td></td>").text(issues.updated_on).appendTo($tr)
 
 	})
 })   
@@ -84,7 +96,7 @@ $(function(){
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
        <li class="mt">
-            <a class="active" href="Index">
+            <a  href="Index">
               <i class="fa fa-dashboard"></i>
               <span>DashBoard</span>
               </a>
@@ -129,7 +141,7 @@ $(function(){
           
                 
            <li class="sub-menu">
-            <a href="javascript:;">
+            <a class="active" href="javascript:;">
               <i class="fa fa-th"></i>
               <span>Restapi For Redmine</span> 
               </a>
@@ -168,27 +180,29 @@ $(function(){
     <!--main content start-->
     <section id="main-content">
       <section class="wrapper">
-        <h3> Issues </h3>
-          <!-- page end-->
- 
-     
-              <div class="row mt">
+        <h3><i class="fa fa-angle-right"></i> Issues</h3>
+        <div class="row">
           <div class="col-md-12">
-            <div class="form-panel">
-             <h3>Lisiting Issues</h3>  
-            
-          
-              
-              <hr>
-              <table id="issuetable">
+            <div class="content-panel">
+              <h4>Listing Issues</h4>
+              <hr width="99.5%">
+              <table class="table" id="issuetable">
                 <thead>
                   <tr>
                     <th>이슈 번호</th>
                     <th>해당 프로젝트</th>
-                    <th>이슈 이름</th>
-                    <th>일감 작성자</th>
-                    <th>이슈 유형</th>
-                    <th>이슈 상태</th>
+                    <th>유형</th>
+                    <th>상태</th>
+                    <th>우선순위</th>
+                    <th>작성자</th>
+                    <th>제목</th>
+                    <th>시작날</th>
+                    <th>완료기한</th>
+                    <th>작업시간</th>
+                    <th>추정시간</th>
+                    <th>생성일</th>
+                    <th>업데이트일</th>
+                    
         
                   </tr>
                 </thead>
@@ -204,14 +218,15 @@ $(function(){
           
           
        
- <div class="row mt">
+ <div class="row mt" >
           <div class="col-lg-12">
-            <div class="form-panel">
-            <h3>Creating Issues</h3>
+            <div class="form-panel" >
+            <h4>Creating Issues</h4>
+            <hr width="100%">
               <div class=" form">
                 <form class="cmxform form-horizontal style-form" id="commentForm" method="POST" action="createIssue">
                   <div class="form-group ">
-                    <label for="cname" class="control-label col-lg-2" >프로젝트 이름 (required)</label>
+                    <label for="cname" class="control-label col-lg-2" >프로젝트 이름 </label>
                     <div class="col-lg-10">
                       <input class=" form-control" id="cname" name="project_id" minlength="1" type="text" required />
                     </div>
@@ -226,7 +241,8 @@ $(function(){
                     <label for="curl" class="control-label col-lg-2 " >우선순위 (required)</label>
                     <div class="col-lg-10">
                       <input class="form-control " id="curl" type="text" name="priority_id" />
-                      <p>ex)낮음, 보통, 높음, 즉시, 긴급</p>
+                      <br>
+                      <p>ex)낮음(1), 보통(2), 높음(3), 긴급(4), 긴급(5) </p>
                     </div>
                   </div>
                   

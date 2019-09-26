@@ -21,8 +21,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.jjy.board.Dao.GroupsServcie;
 import com.jjy.board.Service.AttachmentsService;
 import com.jjy.board.Service.BoardService;
+import com.jjy.board.Service.Custom_fieldsService;
 import com.jjy.board.Service.EnumerationsService;
 import com.jjy.board.Service.IssueCategoriesService;
 import com.jjy.board.Service.IssuesRelationsService;
@@ -33,6 +35,7 @@ import com.jjy.board.Service.NewsService;
 import com.jjy.board.Service.ProjectMembershipsService;
 import com.jjy.board.Service.ProjectService;
 import com.jjy.board.Service.QueriesService;
+import com.jjy.board.Service.RolesService;
 import com.jjy.board.Service.Time_entriesService;
 import com.jjy.board.Service.TrackersService;
 import com.jjy.board.Service.UserService;
@@ -68,6 +71,10 @@ public class BoardController {
 	TrackersService tkService = new TrackersService();
 	EnumerationsService eService = new EnumerationsService();
 	IssueCategoriesService igService = new IssueCategoriesService();
+	RolesService rService = new RolesService();
+	Custom_fieldsService cfService = new Custom_fieldsService();
+	GroupsServcie grService = new GroupsServcie();
+	
 	// 비밀번호 암호와
 	@Autowired
 	private BCryptPasswordEncoder passEncoder;
@@ -210,9 +217,8 @@ public class BoardController {
 	}
 	//프로젝트에서 일감꺼내기
 	@RequestMapping(value = "/Queries" , method = RequestMethod.GET)
-	public String Queries(String project_id, Model model) {
-		qService.getprjectIssues(project_id);
-		model.addAttribute("qeuries", qService.getprjectIssues(project_id));
+	public String Queries( Model model) {
+		model.addAttribute("queries", qService.getprjectIssues());
 		return "Queries";
 	}
 	//일감에서 파일조회
@@ -255,19 +261,31 @@ public class BoardController {
 			igService.createIssueCategories(project_id,name1);
 			return "IssuesCategories";
 		}
-
+	//역할 조회
 	@RequestMapping(value = "/Roles", method = RequestMethod.GET)
-	public String Roles() {
+	public String Roles(Model model) {
+		model.addAttribute("role", rService.getRoles());
 		return "Roles";
 	}
-	
+	//그룹 목록 조회
 	@RequestMapping(value = "/Groups", method = RequestMethod.GET)
-	public String Groups() {
+	public String Groups(String group_id, Model model) {
+		model.addAttribute("group", grService.getGroups());
+		model.addAttribute("groupmember", grService.getGroupsmember(group_id));
+		grService.getGroupsmember(group_id);
 		return "Groups";
 	}
+	//새로운 그룹 생성
+	@RequestMapping(value = "/createGroups", method = RequestMethod.POST)
+	public String createGroups(String group_name) {
+		grService.createtGroups(group_name);
+		return "redirect:/Groups";
+	}
 	
+	//커스텀 필드 리스트 조회
 	@RequestMapping(value = "/CustomFields", method = RequestMethod.GET)
-	public String CustomFields() {
+	public String CustomFields(Model model) {
+		model.addAttribute("customfields", cfService.getCustomFields());
 		return "CustomFields";
 	}
 	

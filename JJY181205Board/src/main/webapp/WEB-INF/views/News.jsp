@@ -29,6 +29,12 @@
   <!-- Custom styles for this template -->
   <link href="resources/css/style.css" rel="stylesheet">
   <link href="resources/css/style-responsive.css" rel="stylesheet">
+    
+   <style>
+ .form-panel{
+ margin:1px;
+ }
+ </style>
 <script>
 $(function(){
 	var ns = new Array();
@@ -83,7 +89,7 @@ $(function(){
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
        <li class="mt">
-            <a class="active" href="Index">
+            <a href="Index">
               <i class="fa fa-dashboard"></i>
               <span>DashBoard</span>
               </a>
@@ -128,7 +134,7 @@ $(function(){
           
                 
            <li class="sub-menu">
-            <a href="javascript:;">
+            <a  class="active" href="javascript:;">
               <i class="fa fa-th"></i>
               <span>Restapi For Redmine</span> 
               </a>
@@ -165,21 +171,15 @@ $(function(){
         MAIN CONTENT
         *********************************************************************************************************************************************************** -->
     <!--main content start-->
-    <section id="main-content">
+     <section id="main-content">
       <section class="wrapper">
-        <h3> News </h3>
-          <!-- page end-->
- 
-     
-              <div class="row mt">
+        <h3><i class="fa fa-angle-right"></i> News</h3>
+        <div class="row">
           <div class="col-md-12">
-            <div class="form-panel">
-             <h3>Lisiting News</h3>  
-            
-          
-              
-              <hr>
-              <table id="NewsTable">
+            <div class="content-panel">
+              <h4>Listing News</h4>
+              <hr width="99.5%">
+              <table class="table" id="NewsTable">
                 <thead>
                   <tr>
                     <th>뉴스 아이디 번호</th>

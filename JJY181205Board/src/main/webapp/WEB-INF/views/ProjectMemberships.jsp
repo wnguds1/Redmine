@@ -29,7 +29,11 @@
   <!-- Custom styles for this template -->
   <link href="resources/css/style.css" rel="stylesheet">
   <link href="resources/css/style-responsive.css" rel="stylesheet">
-  
+   <style>
+ .form-panel{
+ margin:1px;
+ }
+ </style>
 <script>
 $(function(){
 	var mbs = new Array();
@@ -40,6 +44,7 @@ $(function(){
 	
 	$.each(mbs.memberships, function(idx, memberships){
 		var $tr = $("<tr></tr>").appendTo($("#membertable"))
+		$("<td></td>").text(memberships.id).appendTo($tr)
 		$("<td></td>").text(memberships.project.name).appendTo($tr)
 		$("<td></td>").text(memberships.user.name).appendTo($tr)
 		$("<td></td>").text(memberships.roles[0].name).appendTo($tr)
@@ -81,7 +86,7 @@ $(function(){
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
        <li class="mt">
-            <a class="active" href="Index">
+            <a href="Index">
               <i class="fa fa-dashboard"></i>
               <span>DashBoard</span>
               </a>
@@ -126,7 +131,7 @@ $(function(){
           
                 
            <li class="sub-menu">
-            <a href="javascript:;">
+            <a class="active" href="javascript:;">
               <i class="fa fa-th"></i>
               <span>Restapi For Redmine</span> 
               </a>
@@ -163,27 +168,27 @@ $(function(){
         MAIN CONTENT
         *********************************************************************************************************************************************************** -->
     <!--main content start-->
-    <section id="main-content">
+    
+  <section id="main-content">
       <section class="wrapper">
-        <h3> ProjectMemberships </h3>
-          <!-- page end-->
- 
-     
-              <div class="row mt">
+        <h3><i class="fa fa-angle-right"></i> ProjectsMemberships</h3>
+        <div class="row">
           <div class="col-md-12">
-            <div class="form-panel">
-             <h3>Lisiting ProjectMemberships</h3>  
+            <div class="content-panel">
+              <h4>Listing ProjectsMemberships</h4>
+              <hr width="99.5%">
             
           
           <form action="ProjectMemberships" method="get">
-          <input type ="text" name ="mbid">
-          <button type="submit" >전송</button>
+          &nbsp;&nbsp;&nbsp;<input type ="text" name ="mbid">
+          <button type="submit"  class="btn btn-primary btn-sm">프로젝트 번호로 조회</button>
           </form>
               
-              <hr>
-              <table id="membertable">
+         
+              <table class="table" id="membertable">
                 <thead>
                   <tr>
+                  <th>멤버쉽 번호</th>
                     <th>해당 프로젝트 이름</th>
                     <th>멤버이름</th>
                     <th>멤버역할</th>
@@ -201,7 +206,7 @@ $(function(){
  <div class="row mt">
           <div class="col-lg-12">
             <div class="form-panel">
-            <h3>Creating memberships</h3>
+            <h4>Creating ProjectsMemberships</h4>
               <div class=" form">
                 <form class="cmxform form-horizontal style-form" id="commentForm" method="POST" action="createMemberships">
                   <div class="form-group ">
@@ -220,7 +225,7 @@ $(function(){
                     <label for="curl" class="control-label col-lg-2 " >역할 (required)</label>
                     <div class="col-lg-10">
                       <input class="form-control " id="curl" type="text" name="role_ids" />
-                      <p>ex)3:관리자, 4:개발자</p>
+                      <p>ex)관리자(3),개발자(4)</p>
                     </div>
                   </div>
                   

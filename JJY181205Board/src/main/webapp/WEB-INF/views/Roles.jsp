@@ -32,21 +32,18 @@
 <script>
 
 $(function(){
-	var qs = new Array();
-	qs = ${qeuries}
+	var rs = new Array();
+	rs = ${role}
 	
 	
 	
 	
 	
-	$.each(qs.issues, function(idx, issues){
-		var $tq = $("<tr></tr>").appendTo($("#qutable"))
-		$("<td></td>").text(issues.id).appendTo($tq)
-		$("<td></td>").text(issues.project.name).appendTo($tq)
-		$("<td></td>").text(issues.subject).appendTo($tq)
-		$("<td></td>").text(issues.author.name).appendTo($tq)
-		$("<td></td>").text(issues.tracker.name).appendTo($tq)
-		$("<td></td>").text(issues.priority.name).appendTo($tq)
+	$.each(rs.roles, function(idx, roles){
+		var $tq = $("<tr></tr>").appendTo($("#rolestable"))
+		$("<td></td>").text(roles.id).appendTo($tq)
+		$("<td></td>").text(roles.name).appendTo($tq)
+		
 
 	})
 })   
@@ -84,7 +81,7 @@ $(function(){
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
        <li class="mt">
-            <a class="active" href="Index">
+            <a href="Index">
               <i class="fa fa-dashboard"></i>
               <span>DashBoard</span>
               </a>
@@ -129,7 +126,7 @@ $(function(){
           
                 
            <li class="sub-menu">
-            <a href="javascript:;">
+            <a class="active" href="javascript:;">
               <i class="fa fa-th"></i>
               <span>Restapi For Redmine</span> 
               </a>
@@ -168,30 +165,23 @@ $(function(){
     <!--main content start-->
     <section id="main-content">
       <section class="wrapper">
-        <h3> Queries </h3>
+        <h3> Roles </h3>
           <!-- page end-->
  
   
               <div class="row mt">
           <div class="col-md-12">
             <div class="form-panel">
-             <h3>프로젝트에서 일감꺼내기</h3>  
-            
-          <form action= "Queries" method="get">
-          <input type ="text" name="project_id">
-          <button type ="submit">프로젝트 조회</button>
-          </form>
+             <h3> Roles </h3>  
+ 
               
               <hr>
-              <table id="qutable">
+              <table id="rolestable">
                 <thead>
                   <tr>
-                    <th>이슈 번호</th>
-                    <th>해당 프로젝트</th>
-                    <th>이슈 이름</th>
-                    <th>일감 작성자</th>
-                    <th>이슈 유형</th>
-                    <th>이슈 상태</th>
+                    <th>역할 아이디</th>
+                    <th>역할 이름</th>
+                   
         
                   </tr>
                 </thead>
