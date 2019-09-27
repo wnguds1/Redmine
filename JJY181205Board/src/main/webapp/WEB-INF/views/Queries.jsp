@@ -29,6 +29,12 @@
   <!-- Custom styles for this template -->
   <link href="resources/css/style.css" rel="stylesheet">
   <link href="resources/css/style-responsive.css" rel="stylesheet">
+  
+       <style>
+ .form-panel{
+ margin:1px;
+ }
+ </style>
 <script>
 
 $(function(){
@@ -167,17 +173,13 @@ $(function(){
     <!--main content start-->
     <section id="main-content">
       <section class="wrapper">
-        <h3> Queries </h3>
-          <!-- page end-->
- 
-  
-              <div class="row mt">
+        <h3><i class="fa fa-angle-right"></i> Queries</h3>
+        <div class="row">
           <div class="col-md-12">
-            <div class="form-panel">
-             <h3>Queries</h3>  
-             
-              <hr>
-              <table id="qutable">
+            <div class="content-panel">
+              <h4>Listing Queries</h4>
+              <hr width="99.5%">
+              <table class="table" id="qutable">
                 <thead>
                   <tr>
                     <th>쿼리 아이디</th>

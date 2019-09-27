@@ -29,6 +29,11 @@
   <!-- Custom styles for this template -->
   <link href="resources/css/style.css" rel="stylesheet">
   <link href="resources/css/style-responsive.css" rel="stylesheet">
+       <style>
+ .form-panel{
+ margin:1px;
+ }
+ </style>
 <script>
 $(function(){
 	var ist = new Array();
@@ -164,21 +169,16 @@ $(function(){
         MAIN CONTENT
         *********************************************************************************************************************************************************** -->
     <!--main content start-->
-    <section id="main-content">
-      <section class="wrapper">
-        <h3> Issue Statuses </h3>
-          <!-- page end-->
- 
-     
-              <div class="row mt">
+     <section id="main-content">
+     <section class="wrapper">
+        <h3><i class="fa fa-angle-right"></i> Issue Statuses </h3>
+        <div class="row">
           <div class="col-md-12">
-            <div class="form-panel">
-             <h3>Lisiting Issue Statuses</h3>  
-            
-          
-              
-              <hr>
-              <table id="statusesTable">
+            <div class="content-panel">
+              <h4>Listing Issue Statuses </h4>
+              <hr width="99.5%">
+
+              <table class="table" id="statusesTable">
                 <thead>
                   <tr>
                     <th>상태아이디</th>

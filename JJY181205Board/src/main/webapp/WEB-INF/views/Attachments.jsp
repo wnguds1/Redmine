@@ -167,22 +167,21 @@ $(function(){
     <!--main content start-->
     <section id="main-content">
       <section class="wrapper">
-        <h3>  Attachments </h3>
-          <!-- page end-->
- 
-     
-              <div class="row mt">
+        <h3><i class="fa fa-angle-right"></i> WikiPage</h3>
+        <div class="row">
           <div class="col-md-12">
-            <div class="form-panel">
-             <h3>Lisiting Attachments </h3>  
+            <div class="content-panel">
+              <h4>Listing WikiPage</h4>
+              <hr width="99.5%">
+            
             
           
               <form action="Attachments" method="get">
-              <input type="text" name="project_id">
-              <button type="submit" >일감 조회</button>
+			&nbsp;&nbsp;&nbsp;<input type="text" name="project_id">
+              <button type="submit" class="btn btn-primary btn-sm">일감 조회</button>
               </form>
               <hr>
-              <table id="attachmentsTable">
+              <table class ="table" id="attachmentsTable">
                 <thead>
                   <tr>
                     <th>파일 아이디 </th>

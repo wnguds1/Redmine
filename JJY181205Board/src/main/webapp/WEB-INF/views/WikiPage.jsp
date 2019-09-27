@@ -29,6 +29,12 @@
   <!-- Custom styles for this template -->
   <link href="resources/css/style.css" rel="stylesheet">
   <link href="resources/css/style-responsive.css" rel="stylesheet">
+  
+     <style>
+ .form-panel{
+ margin:1px;
+ }
+ </style>
 <script>
 $(function(){
 	var wp = new Array();
@@ -79,7 +85,7 @@ $(function(){
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
        <li class="mt">
-            <a class="active" href="Index">
+            <a  href="Index">
               <i class="fa fa-dashboard"></i>
               <span>DashBoard</span>
               </a>
@@ -124,7 +130,7 @@ $(function(){
           
                 
            <li class="sub-menu">
-            <a href="javascript:;">
+            <a class="active" href="javascript:;">
               <i class="fa fa-th"></i>
               <span>Restapi For Redmine</span> 
               </a>
@@ -163,22 +169,21 @@ $(function(){
     <!--main content start-->
     <section id="main-content">
       <section class="wrapper">
-        <h3>  WikiPages </h3>
-          <!-- page end-->
- 
-     
-              <div class="row mt">
+        <h3><i class="fa fa-angle-right"></i> WikiPage</h3>
+        <div class="row">
           <div class="col-md-12">
-            <div class="form-panel">
-             <h3>Lisiting WikiPages </h3>  
+            <div class="content-panel">
+              <h4>Listing WikiPage</h4>
+              <hr width="99.5%">
+            
             
           
               <form action="WikiPage" method="get">
-              <input type="text" name="project_id">
-              <button type="submit" >프로젝트 조회</button>
+             &nbsp;&nbsp;&nbsp;<input type="text" name="project_id">
+              <button type="submit" class="btn btn-primary btn-sm" >프로젝트 조회</button>
               </form>
               <hr>
-              <table id="wikipagesTable">
+              <table class="table" id="wikipagesTable">
                 <thead>
                   <tr>
                     <th>위키 제목 </th>
@@ -201,7 +206,8 @@ $(function(){
  <div class="row mt">
           <div class="col-lg-12">
             <div class="form-panel">
-            <h3>Creating WikiPages</h3>
+            <h4>Creating WikiPages</h4>
+            <hr>
               <div class=" form">
                 <form class="cmxform form-horizontal style-form" id="commentForm" method="POST" action="createWikiPage">
                   <div class="form-group ">
