@@ -49,12 +49,6 @@ public class UserService {
 			 HttpClient client = HttpClientBuilder.create().build();
              HttpPost post = new HttpPost("http://localhost:80/redmine/users.json?key=604a7786d7a980ab3f223165ee2bae9a9e53a366");
              String request = StringUtil.toJsonString("{'user':{'login':'"+login+"','firstname':'"+firstname+"','lastname':'"+lastname+"','mail':'"+mail+"'}}");
-             System.out.println("리퀘스트"+request);
-             System.out.println("서비스");
-             System.out.println(login);
-             System.out.println(firstname);
-             System.out.println(lastname);
-             System.out.println(mail);
              post.setEntity(new StringEntity(request, Consts.UTF_8));
              post.setHeader("Content-Type", "application/json;charset=UTF-8");
              HttpResponse response = client.execute(post);
