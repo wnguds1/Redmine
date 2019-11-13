@@ -29,23 +29,48 @@
   <!-- Custom styles for this template -->
   <link href="resources/css/style.css" rel="stylesheet">
   <link href="resources/css/style-responsive.css" rel="stylesheet">
+    <!-- Custom styles for this template-->
+  <link href="resources/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="resources/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+ <style>
+ .form-panel{
+ margin:1px;
+ }
+ .Membercard
+ {
+ margin-left:30px;
+ }
+ </style>
+ 
+<script>
+$(function(){
+	var iss = new Array();
+	iss = ${issue}
+	
+	console.log(iss.issues.length)
+	
+	
+	$.each(iss.issues, function(idx, issues){
+		var $tr = $("<tr></tr>").appendTo($("#issuetable"))
+		$("<td></td>").text(issues.id).appendTo($tr)
+		$("<td></td>").text(issues.project.name).appendTo($tr)
+		$("<td></td>").text(issues.tracker.name).appendTo($tr)
+		$("<td></td>").text(issues.status.name).appendTo($tr)
+		$("<td></td>").text(issues.priority.name).appendTo($tr)
+		$("<td></td>").text(issues.author.name).appendTo($tr)
+		$("<td></td>").text(issues.subject).appendTo($tr)
+		$("<td></td>").text(issues.start_date).appendTo($tr)
+		$("<td></td>").text(issues.due_date).appendTo($tr)
+		$("<td></td>").text(issues.done_ratio).appendTo($tr)
+		$("<td></td>").text(issues.estimated_hours).appendTo($tr)
+		$("<td></td>").text(issues.created_on).appendTo($tr)
+		$("<td></td>").text(issues.updated_on).appendTo($tr)
 
-  <!-- =======================================================
-    Template Name: Dashio
-    Template URL: https://templatemag.com/dashio-bootstrap-admin-template/
-    Author: TemplateMag.com
-    License: https://templatemag.com/license/
-  ======================================================= -->
-  <script>
-$(document).ready(function(){
-  $("#myInput").on("keyup", function() {
-    var value = $(this).val().toLowerCase();
-    $("#myTable tr").filter(function() {
-      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-    });
-  });
-});
-</script>
+	})
+})   
+
+
+</script> 
 </head>
 
 <body>
@@ -62,8 +87,6 @@ $(document).ready(function(){
       <a href="https://www.processware.co.kr" class="logo"><strong>Processware</strong></a>
       <!--logo end-->
      
-     
-   
       <div class="top-menu">
         <ul class="nav pull-right top-menu">
           <li><a class="logout" href="login.html">Logout</a></li>
@@ -83,526 +106,220 @@ $(document).ready(function(){
     <!--main content start-->
     <section id="main-content">
       <section class="wrapper">
-        <div class="row">
-          <div class="col-lg-9 main-chart">
-            <!--CUSTOM CHART START -->
-            <div class="border-head">
-              <h3>USER VISITS</h3>
-            </div>
-            <div class="custom-bar-chart">
-              <ul class="y-axis">
-                <li><span>10.000</span></li>
-                <li><span>8.000</span></li>
-                <li><span>6.000</span></li>
-                <li><span>4.000</span></li>
-                <li><span>2.000</span></li>
-                <li><span>0</span></li>
-              </ul>
-              <div class="bar">
-                <div class="title">JAN</div>
-                <div class="value tooltips" data-original-title="8.500" data-toggle="tooltip" data-placement="top">85%</div>
-              </div>
-              <div class="bar ">
-                <div class="title">FEB</div>
-                <div class="value tooltips" data-original-title="5.000" data-toggle="tooltip" data-placement="top">50%</div>
-              </div>
-              <div class="bar ">
-                <div class="title">MAR</div>
-                <div class="value tooltips" data-original-title="6.000" data-toggle="tooltip" data-placement="top">60%</div>
-              </div>
-              <div class="bar ">
-                <div class="title">APR</div>
-                <div class="value tooltips" data-original-title="4.500" data-toggle="tooltip" data-placement="top">45%</div>
-              </div>
-              <div class="bar">
-                <div class="title">MAY</div>
-                <div class="value tooltips" data-original-title="3.200" data-toggle="tooltip" data-placement="top">32%</div>
-              </div>
-              <div class="bar ">
-                <div class="title">JUN</div>
-                <div class="value tooltips" data-original-title="6.200" data-toggle="tooltip" data-placement="top">62%</div>
-              </div>
-              <div class="bar">
-                <div class="title">JUL</div>
-                <div class="value tooltips" data-original-title="7.500" data-toggle="tooltip" data-placement="top">75%</div>
+      <br>
+      <div class="row">
+         
+           <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">매출현황 (월)</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-            <!--custom chart end-->
-            <div class="row mt">
-              <!-- SERVER STATUS PANELS -->
-              <div class="col-md-4 col-sm-4 mb">
-                <div class="grey-panel pn donut-chart">
-                  <div class="grey-header">
-                    <h5>SERVER LOAD</h5>
-                  </div>
-                  <canvas id="serverstatus01" height="120" width="120"></canvas>
-                  <script>
-                    var doughnutData = [{
-                        value: 70,
-                        color: "#FF6B6B"
-                      },
-                      {
-                        value: 30,
-                        color: "#fdfdfd"
-                      }
-                    ];
-                    var myDoughnut = new Chart(document.getElementById("serverstatus01").getContext("2d")).Doughnut(doughnutData);
-                  </script>
-                  <div class="row">
-                    <div class="col-sm-6 col-xs-6 goleft">
-                      <p>Usage<br/>Increase:</p>
+
+            <!-- Earnings (Monthly) Card Example -->
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-success shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1">매출현황 (연)</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">$330,000</div>
                     </div>
-                    <div class="col-sm-6 col-xs-6">
-                      <h2>21%</h2>
+                    <div class="col-auto">
+                      <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
                     </div>
                   </div>
                 </div>
-                <!-- /grey-panel -->
               </div>
-              <!-- /col-md-4-->
-              <div class="col-md-4 col-sm-4 mb">
-                <div class="darkblue-panel pn">
-                  <div class="darkblue-header">
-                    <h5>DROPBOX STATICS</h5>
-                  </div>
-                  <canvas id="serverstatus02" height="120" width="120"></canvas>
-                  <script>
-                    var doughnutData = [{
-                        value: 60,
-                        color: "#1c9ca7"
-                      },
-                      {
-                        value: 40,
-                        color: "#f68275"
-                      }
-                    ];
-                    var myDoughnut = new Chart(document.getElementById("serverstatus02").getContext("2d")).Doughnut(doughnutData);
-                  </script>
-                  <p>April 17, 2014</p>
-                  <footer>
-                    <div class="pull-left">
-                      <h5><i class="fa fa-hdd-o"></i> 17 GB</h5>
-                    </div>
-                    <div class="pull-right">
-                      <h5>60% Used</h5>
-                    </div>
-                  </footer>
-                </div>
-                <!--  /darkblue panel -->
-              </div>
-              <!-- /col-md-4 -->
-              <div class="col-md-4 col-sm-4 mb">
-                <!-- REVENUE PANEL -->
-                <div class="green-panel pn">
-                  <div class="green-header">
-                    <h5>REVENUE</h5>
-                  </div>
-                  <div class="chart mt">
-                    <div class="sparkline" data-type="line" data-resize="true" data-height="75" data-width="90%" data-line-width="1" data-line-color="#fff" data-spot-color="#fff" data-fill-color="" data-highlight-line-color="#fff" data-spot-radius="4" data-data="[200,135,667,333,526,996,564,123,890,464,655]"></div>
-                  </div>
-                  <p class="mt"><b>$ 17,980</b><br/>Month Income</p>
-                </div>
-              </div>
-              <!-- /col-md-4 -->
             </div>
-            <!-- /row -->
-            <div class="row">
-              <!-- WEATHER PANEL -->
-              <div class="col-md-4 mb">
-                <div class="weather pn">
-                  <i class="fa fa-cloud fa-4x"></i>
-                  <h2>11Âº C</h2>
-                  <h4>BUDAPEST</h4>
-                </div>
-              </div>
-              <!-- /col-md-4-->
-              <!-- DIRECT MESSAGE PANEL -->
-              <div class="col-md-8 mb">
-                <div class="message-p pn">
-                  <div class="message-header">
-                    <h5>DIRECT MESSAGE</h5>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-3 centered hidden-sm hidden-xs">
-                      <img src="resources/img/ui-danro.jpg" class="img-circle" width="65">
-                    </div>
-                    <div class="col-md-9">
-                      <p>
-                        <name>Dan Rogers</name>
-                        sent you a message.
-                      </p>
-                      <p class="small">3 hours ago</p>
-                      <p class="message">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
-                      <form class="form-inline" role="form">
-                        <div class="form-group">
-                          <input type="text" class="form-control" id="exampleInputText" placeholder="Reply Dan">
+
+            <!-- Earnings (Monthly) Card Example -->
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-info shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1">테스크 진행</div>
+                      <div class="row no-gutters align-items-center">
+                        <div class="col-auto">
+                          <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">70%</div>
                         </div>
-                        <button type="submit" class="btn btn-default">Send</button>
-                      </form>
+                        <div class="col">
+                          <div class="progress progress-sm mr-2">
+                            <div class="progress-bar bg-info" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="80"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
                     </div>
                   </div>
                 </div>
-                <!-- /Message Panel-->
               </div>
-              <!-- /col-md-8  -->
             </div>
-            <div class="row">
-              <!-- TWITTER PANEL -->
-              <div class="col-md-4 mb">
-                <div class="twitter-panel pn">
-                  <i class="fa fa-twitter fa-4x"></i>
-                  <p>Dashio is here! Take a look and enjoy this new Bootstrap Dashboard theme.</p>
-                  <p class="user">@Alvrz_is</p>
-                </div>
-              </div>
-              <!-- /col-md-4 -->
-              <div class="col-md-4 mb">
-                <!-- WHITE PANEL - TOP USER -->
-                <div class="white-panel pn">
-                  <div class="white-header">
-                    <h5>TOP USER</h5>
-                  </div>
-                  <p><img src="resources/img/ui-zac.jpg" class="img-circle" width="50"></p>
-                  <p><b>Zac Snider</b></p>
-                  <div class="row">
-                    <div class="col-md-6">
-                      <p class="small mt">MEMBER SINCE</p>
-                      <p>2012</p>
+
+            <!-- Pending Requests Card Example -->
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-warning shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">문의</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
                     </div>
-                    <div class="col-md-6">
-                      <p class="small mt">TOTAL SPEND</p>
-                      <p>$ 47,60</p>
+                    <div class="col-auto">
+                      <i class="fas fa-comments fa-2x text-gray-300"></i>
                     </div>
                   </div>
                 </div>
               </div>
-              <!-- /col-md-4 -->
-              <div class="col-md-4 mb">
-                <!-- INSTAGRAM PANEL -->
-                <div class="instagram-panel pn">
-                  <i class="fa fa-instagram fa-4x"></i>
-                  <p>@THISISYOU<br/> 5 min. ago
-                  </p>
-                  <p><i class="fa fa-comment"></i> 18 | <i class="fa fa-heart"></i> 49</p>
-                </div>
-              </div>
-              <!-- /col-md-4 -->
             </div>
-            <!-- /row -->
-            <div class="row">
-              <div class="col-lg-4 col-md-4 col-sm-4 mb">
-                <div class="product-panel-2 pn">
-                  <div class="badge badge-hot">HOT</div>
-                  <img src="resources//img/product.jpg" width="200" alt="">
-                  <h5 class="mt">Flat Pack Heritage</h5>
-                  <h6>TOTAL SALES: 1388</h6>
-                  <button class="btn btn-small btn-theme04">FULL REPORT</button>
-                </div>
-              </div>
-              <!-- /col-md-4 -->
-              <!--  PROFILE 02 PANEL -->
-              <div class="col-lg-4 col-md-4 col-sm-4 mb">
-                <div class="content-panel pn">
-                  <div id="profile-02">
-                    <div class="user">
-                      <img src="resources//img/friends/fr-06.jpg" class="img-circle" width="80">
-                      <h4>DJ SHERMAN</h4>
-                    </div>
-                  </div>
-                  <div class="pr2-social centered">
-                    <a href="#"><i class="fa fa-twitter"></i></a>
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-dribbble"></i></a>
-                  </div>
-                </div>
-                <!-- /panel -->
-              </div>
-              <!--/ col-md-4 -->
-              <div class="col-md-4 col-sm-4 mb">
-                <div class="green-panel pn">
-                  <div class="green-header">
-                    <h5>DISK SPACE</h5>
-                  </div>
-                  <canvas id="serverstatus03" height="120" width="120"></canvas>
-                  <script>
-                    var doughnutData = [{
-                        value: 60,
-                        color: "#2b2b2b"
-                      },
-                      {
-                        value: 40,
-                        color: "#fffffd"
-                      }
-                    ];
-                    var myDoughnut = new Chart(document.getElementById("serverstatus03").getContext("2d")).Doughnut(doughnutData);
-                  </script>
-                  <h3>60% USED</h3>
-                </div>
-              </div>
-              <!-- /col-md-4 -->
-            </div>
-            <!-- /row -->
+
           </div>
-          <!-- /col-lg-9 END SECTION MIDDLE -->
-          <!-- **********************************************************************************************************************************************************
-              RIGHT SIDEBAR CONTENT
-              *********************************************************************************************************************************************************** -->
-          <div class="col-lg-3 ds">
-            <!--COMPLETED ACTIONS DONUTS CHART-->
-            <div class="donut-main">
-              <h4>COMPLETED ACTIONS & PROGRESS</h4>
-              <canvas id="newchart" height="130" width="130"></canvas>
-              <script>
-                var doughnutData = [{
-                    value: 70,
-                    color: "#4ECDC4"
-                  },
-                  {
-                    value: 30,
-                    color: "#fdfdfd"
-                  }
-                ];
-                var myDoughnut = new Chart(document.getElementById("newchart").getContext("2d")).Doughnut(doughnutData);
-              </script>
-            </div>
-            <!--NEW EARNING STATS -->
-            <div class="panel terques-chart">
-              <div class="panel-body">
-                <div class="chart">
-                  <div class="centered">
-                    <span>TODAY EARNINGS</span>
-                    <strong>$ 890,00 | 15%</strong>
+     
+     
+       <div class="row">
+
+            <!-- Area Chart -->
+            <div class="col-xl-8 col-lg-7">
+              <div class="card shadow mb-4">
+                <!-- Card Header - Dropdown -->
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                  <h6 class="m-0 font-weight-bold text-primary">매출현황</h6>
+                
+                </div>
+                <!-- Card Body -->
+                <div class="card-body">
+                  <div class="chart-area">
+                    <canvas id="myAreaChart"></canvas>
                   </div>
-                  <br>
-                  <div class="sparkline" data-type="line" data-resize="true" data-height="75" data-width="90%" data-line-width="1" data-line-color="#fff" data-spot-color="#fff" data-fill-color="" data-highlight-line-color="#fff" data-spot-radius="4" data-data="[200,135,667,333,526,996,564,123,890,564,455]"></div>
                 </div>
               </div>
             </div>
-            <!--new earning end-->
-            <!-- RECENT ACTIVITIES SECTION -->
-            <h4 class="centered mt">RECENT ACTIVITY</h4>
-            <!-- First Activity -->
-            <div class="desc">
-              <div class="thumb">
-                <span class="badge bg-theme"><i class="fa fa-clock-o"></i></span>
-              </div>
-              <div class="details">
-                <p>
-                  <muted>Just Now</muted>
-                  <br/>
-                  <a href="#">Paul Rudd</a> purchased an item.<br/>
-                </p>
-              </div>
-            </div>
-            <!-- Second Activity -->
-            <div class="desc">
-              <div class="thumb">
-                <span class="badge bg-theme"><i class="fa fa-clock-o"></i></span>
-              </div>
-              <div class="details">
-                <p>
-                  <muted>2 Minutes Ago</muted>
-                  <br/>
-                  <a href="#">James Brown</a> subscribed to your newsletter.<br/>
-                </p>
-              </div>
-            </div>
-            <!-- Third Activity -->
-            <div class="desc">
-              <div class="thumb">
-                <span class="badge bg-theme"><i class="fa fa-clock-o"></i></span>
-              </div>
-              <div class="details">
-                <p>
-                  <muted>3 Hours Ago</muted>
-                  <br/>
-                  <a href="#">Diana Kennedy</a> purchased a year subscription.<br/>
-                </p>
-              </div>
-            </div>
-            <!-- Fourth Activity -->
-            <div class="desc">
-              <div class="thumb">
-                <span class="badge bg-theme"><i class="fa fa-clock-o"></i></span>
-              </div>
-              <div class="details">
-                <p>
-                  <muted>7 Hours Ago</muted>
-                  <br/>
-                  <a href="#">Brando Page</a> purchased a year subscription.<br/>
-                </p>
-              </div>
-            </div>
-            <!-- USERS ONLINE SECTION -->
-            <h4 class="centered mt">TEAM MEMBERS ONLINE</h4>
-            <!-- First Member -->
-            <div class="desc">
-              <div class="thumb">
-                <img class="img-circle" src="resources/img/ui-divya.jpg" width="35px" height="35px" align="">
-              </div>
-              <div class="details">
-                <p>
-                  <a href="#">DIVYA MANIAN</a><br/>
-                  <muted>Available</muted>
-                </p>
-              </div>
-            </div>
-            <!-- Second Member -->
-            <div class="desc">
-              <div class="thumb">
-                <img class="img-circle" src="resources/img/ui-sherman.jpg" width="35px" height="35px" align="">
-              </div>
-              <div class="details">
-                <p>
-                  <a href="#">DJ SHERMAN</a><br/>
-                  <muted>I am Busy</muted>
-                </p>
-              </div>
-            </div>
-            <!-- Third Member -->
-            <div class="desc">
-              <div class="thumb">
-                <img class="img-circle" src="resources/img/ui-danro.jpg" width="35px" height="35px" align="">
-              </div>
-              <div class="details">
-                <p>
-                  <a href="#">DAN ROGERS</a><br/>
-                  <muted>Available</muted>
-                </p>
-              </div>
-            </div>
-            <!-- Fourth Member -->
-            <div class="desc">
-              <div class="thumb">
-                <img class="img-circle" src="resources/img/ui-zac.jpg" width="35px" height="35px" align="">
-              </div>
-              <div class="details">
-                <p>
-                  <a href="#">Zac Sniders</a><br/>
-                  <muted>Available</muted>
-                </p>
-              </div>
-            </div>
-            <!-- CALENDAR-->
-            <div id="calendar" class="mb">
-              <div class="panel green-panel no-margin">
-                <div class="panel-body">
-                  <div id="date-popover" class="popover top" style="cursor: pointer; disadding: block; margin-left: 33%; margin-top: -50px; width: 175px;">
-                    <div class="arrow"></div>
-                    <h3 class="popover-title" style="disadding: none;"></h3>
-                    <div id="date-popover-content" class="popover-content"></div>
+
+            <!-- Pie Chart -->
+            <div class="col-xl-4 col-lg-5">
+              <div class="card shadow mb-4">
+                <!-- Card Header - Dropdown -->
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                  <h6 class="m-0 font-weight-bold text-primary">프로젝트 현황</h6>             
+                </div>
+                <!-- Card Body -->
+                <div class="card-body">
+                  <div class="chart-pie pt-4 pb-2">
+                    <canvas id="myPieChart"></canvas>
                   </div>
-                  <div id="my-calendar"></div>
+                  <div class="mt-4 text-center small">
+                    <span class="mr-2">
+                      <i class="fas fa-circle text-primary"></i> 진행중인 프로젝트
+                    </span>
+                    <span class="mr-2">
+                      <i class="fas fa-circle text-success"></i> 완료된 프로젝트
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
-            <!-- / calendar -->
+            
+            
+            
+                <div class="container-fluid">
+
+          <!-- Page Heading -->
+          <h1 class="h3 mb-2 text-gray-800">위험이슈관리</h1>
+          <p class="mb-4">현재 프로세스마인에 있는 위험이슈관리</a></p>
+
+          <!-- DataTales Example --> 
+          <div class="card shadow mb-4" style="height:auto;">
+            <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary">일감목록</h6>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-bordered" id="issuetable" width="100%" cellspacing="0">
+                  <thead>
+                   <tr>
+                    <th>이슈 번호</th>
+                    <th>해당 프로젝트</th>
+                    <th>유형</th>
+                    <th>상태</th>
+                    <th>우선순위</th>
+                    <th>작성자</th>
+                    <th>제목</th>
+                    <th>시작날</th>
+                    <th>완료기한</th>
+                    <th>작업시간</th>
+                    <th>추정시간</th>
+                    <th>생성일</th>
+                    <th>업데이트일</th>
+                  </tr>
+                  </thead>
+                  </tbody>
+                </table>
+              </div>
+            </div>
           </div>
-          <!-- /col-lg-3 -->
+
         </div>
-        <!-- /row -->
+          </div>
+              
+              
+              
       </section>
+      <!-- /wrapper -->
     </section>
+    <!-- /MAIN CONTENT -->
     <!--main content end-->
     <!--footer start-->
-    <footer class="site-footer">
-      <div class="text-center">
-        <p>
-          &copy; Copyrights <strong>Dashio</strong>. All Rights Reserved
-        </p>
-        <div class="credits">
-          <!--
-            You are NOT allowed to delete the credit link to TemplateMag with free version.
-            You can delete the credit link only if you bought the pro version.
-            Buy the pro version with working PHP/AJAX contact form: https://templatemag.com/dashio-bootstrap-admin-template/
-            Licensing information: https://templatemag.com/license/
-          -->
-          Created with Dashio template by <a href="https://templatemag.com/">TemplateMag</a>
-        </div>
-        <a href="index.html#" class="go-top">
-          <i class="fa fa-angle-up"></i>
-          </a>
-      </div>
-    </footer>
+     
     <!--footer end-->
   </section>
-  <!-- js placed at the end of the document so the pages load faster -->
+   <!-- js placed at the end of the document so the pages load faster -->
   <script src="resources/lib/jquery/jquery.min.js"></script>
-
   <script src="resources/lib/bootstrap/js/bootstrap.min.js"></script>
   <script class="include" type="text/javascript" src="resources/lib/jquery.dcjqaccordion.2.7.js"></script>
   <script src="resources/lib/jquery.scrollTo.min.js"></script>
   <script src="resources/lib/jquery.nicescroll.js" type="text/javascript"></script>
-  <script src="resources/lib/jquery.sparkline.js"></script>
   <!--common script for all pages-->
   <script src="resources/lib/common-scripts.js"></script>
-  <script type="text/javascript" src="resources/lib/gritter/js/jquery.gritter.js"></script>
-  <script type="text/javascript" src="resources/lib/gritter-conf.js"></script>
   <!--script for this page-->
-  <script src="resources/lib/sparkline-chart.js"></script>
-  <script src="resources/lib/zabuto_calendar.js"></script>
-  <script type="resources/text/javascript">
-    $(document).ready(function() {
-      var unique_id = $.gritter.add({
-        // (string | mandatory) the heading of the notification
-        title: 'Welcome to Dashio!',
-        // (string | mandatory) the text inside the notification
-        text: 'Hover me to enable the Close Button. You can hide the left sidebar clicking on the button next to the logo.',
-        // (string | optional) the image to display on the left
-        image: 'img/ui-sam.jpg',
-        // (bool | optional) if you want it to fade out on its own or just sit there
-        sticky: false,
-        // (int | optional) the time you want it to be alive for before fading out
-        time: 8000,
-        // (string | optional) the class name you want to apply to that specific message
-        class_name: 'my-sticky-class'
-      });
+  <script src="resources/lib/jquery-ui-1.9.2.custom.min.js"></script>
+  <script type="text/javascript" src="resources/lib/bootstrap-fileupload/bootstrap-fileupload.js"></script>
+  <script type="text/javascript" src="resources/lib/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+  <script type="text/javascript" src="resources/lib/bootstrap-daterangepicker/date.js"></script>
+  <script type="text/javascript" src="resources/lib/bootstrap-daterangepicker/daterangepicker.js"></script>
+  <script type="text/javascript" src="resources/lib/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
+  <script type="text/javascript" src="resources/lib/bootstrap-daterangepicker/moment.min.js"></script>
+  <script type="text/javascript" src="resources/lib/bootstrap-timepicker/js/bootstrap-timepicker.js"></script>
+  <script src="resources/lib/advanced-form-components.js"></script>
+  
 
-      return false;
-    });
-  </script>
-  <script type="application/javascript">
-    $(document).ready(function() {
-      $("#date-popover").popover({
-        html: true,
-        trigger: "manual"
-      });
-      $("#date-popover").hide();
-      $("#date-popover").click(function(e) {
-        $(this).hide();
-      });
 
-      $("#my-calendar").zabuto_calendar({
-        action: function() {
-          return myDateFunction(this.id, false);
-        },
-        action_nav: function() {
-          return myNavFunction(this.id);
-        },
-        ajax: {
-          url: "show_data.php?action=1",
-          modal: true
-        },
-        legend: [{
-            type: "text",
-            label: "Special event",
-            badge: "00"
-          },
-          {
-            type: "block",
-            label: "Regular event",
-          }
-        ]
-      });
-    });
+<script src="resources/vendor/chart.js/Chart.min.js"></script>
 
-    function myNavFunction(id) {
-      $("#date-popover").hide();
-      var nav = $("#" + id).data("navigation");
-      var to = $("#" + id).data("to");
-      console.log('nav ' + nav + ' to: ' + to.month + '/' + to.year);
-    }
-  </script>
+  <!-- Page level custom scripts -->
+  <script src="resources/js/demo/chart-area-demo.js"></script>
+  <script src="resources/js/demo/chart-pie-demo.js"></script>
+   <script src="resources/vendor/datatables/jquery.dataTables.min.js"></script>
+  <script src="resources/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+ <!-- Custom scripts for all pages-->
+  <script src="resources/js/sb-admin-2.min.js"></script>
+
+  <!-- Page level custom scripts -->
+  <script src="resources/js/demo/datatables-demo.js"></script>
+
+
 </body>
 
 </html>

@@ -81,6 +81,7 @@ public class BoardController {
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
+		model.addAttribute("issue", iService.getIssues());
 		return "Index";
 	}
 	
@@ -91,6 +92,66 @@ public class BoardController {
 		
 		return "Index";
 	} 
+
+	//인력관리
+	@RequestMapping(value = "/MemberMange", method = RequestMethod.GET)
+	public String MemberMange() {
+		
+		
+		return "MemberMange";
+	}
+	//자산관리
+	@RequestMapping(value = "/Assets", method = RequestMethod.GET)
+	public String Assets() {
+		
+		
+		return "Assets";
+	}
+	//소프트웨어관리
+		@RequestMapping(value = "/Software", method = RequestMethod.GET)
+		public String Software() {
+			
+			
+			return "Software";
+		}
+		//성과관리
+		@RequestMapping(value = "/Performance", method = RequestMethod.GET)
+		public String Performance() {
+			
+			
+			return "Performance";
+		}
+		//성과상세보기
+				@RequestMapping(value = "/PerformanceProfile", method = RequestMethod.GET)
+				public String PerformanceProfile() {
+					
+					
+					return "PerformanceProfile";
+				}
+				//성과상세보기
+				@RequestMapping(value = "/PerformanceProfile2", method = RequestMethod.GET)
+				public String PerformanceProfile2() {
+					
+					
+					return "PerformanceProfile2";
+				}
+		
+				//성과상세보기
+				@RequestMapping(value = "/PmoQmo", method = RequestMethod.GET)
+				public String PmoQmo() {
+					
+					
+					return "PmoQmo";
+				}
+		
+	//프로필 상세정보
+	@RequestMapping(value = "/Profile", method = RequestMethod.GET)
+	public String Profile() {
+		
+		
+		return "Profile";
+	} 
+
 	//이슈 리스트 조회
 	@RequestMapping(value = "/Issues", method = RequestMethod.GET)
 	public String Issues(Model model) {

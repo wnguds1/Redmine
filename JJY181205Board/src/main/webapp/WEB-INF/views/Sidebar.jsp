@@ -48,8 +48,11 @@
               <span>모니터링 & 리포팅</span>
               </a>
             <ul class="sub">
-              <li><a href="grids.html">영수증 처리</a></li>
-              <li><a href="calendar.html">영수증 월말 결산</a></li>
+              <li><a href="MemberMange">인적자원관리</a></li>
+              <li><a href="Assets">자산관리</a></li>
+               <li><a href="Performance">성과관리</a></li>
+               <li><a href="Projects">프로젝트 품질관리</a></li>
+        
               
             </ul>
           </li>
@@ -70,28 +73,28 @@
            <li class="sub-menu">
             <a href="javascript:;">
               <i class="fa fa-th"></i>
-              <span>Restapi For Redmine</span> 
+              <span>RESTAPI For Processmine</span> 
               </a>
             <ul class="sub">
-               <li><a href="Issues">Issues</a></li>
-              <li><a href="Projects">Projects</a></li>
-              <li><a href="ProjectMemberships">Project Memberships</a></li>
-              <li><a href="Users">Users</a></li>
-              <li><a href="TimeEntries">Time Entries</a></li>
-              <li><a href="News">News</a></li>
-              <li><a href="IssueRelations">Issue Relations</a></li>
-              <li><a href="Versions">Versions</a></li>
-              <li><a href="WikiPage">Wiki Page</a></li>
-              <li><a href="Queries">Queries</a></li>
-              <li><a href="Attachments">Attachments</a></li>
-              <li><a href="IssueStatuse">Issues Statues</a></li>
-              <li><a href="Trackers">Trackers</a></li>
-              <li><a href="Enumerations">Enumerations</a></li>
-              <li><a href="IssuesCategories">Issue Categories</a></li>
-              <li><a href="Roles">Roles</a></li>
-              <li><a href="Groups">Groups</a></li>
-              <li><a href="CustomFields">Custom Fields</a></li>
-              <li><a href="Files">Files</a></li>
+               <li><a href="Issues">이슈</a></li>
+              <li><a href="Projects">프로젝트</a></li>
+              <li><a href="ProjectMemberships">프로젝트 멤버</a></li>
+              <li><a href="Users">사용자</a></li>
+              <li><a href="TimeEntries">시간추적</a></li>
+              <li><a href="News">뉴스</a></li>
+              <li><a href="IssueRelations">일감관계</a></li>
+              <li><a href="Versions">버전</a></li>
+              <li><a href="WikiPage">위키페이지</a></li>
+              <li><a href="Queries">쿼리</a></li>
+              <li><a href="Attachments">첨부파일</a></li>
+              <li><a href="IssueStatuse">이슈상태</a></li>
+              <li><a href="Trackers">일감상태</a></li>
+              <li><a href="Enumerations">일감분류</a></li>
+              <li><a href="IssuesCategories">이슈카테고리</a></li>
+              <li><a href="Roles">역할</a></li>
+              <li><a href="Groups">그룹</a></li>
+              <li><a href="CustomFields">사용자 정의</a></li>
+              <li><a href="Files">파일</a></li>
         
          </ul>
          </li>

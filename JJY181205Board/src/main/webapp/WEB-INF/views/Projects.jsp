@@ -44,7 +44,7 @@ $(function(){
 	
 	$.each(pro.projects, function(idx, projects){
 		var $ta = $("<tr></tr>").appendTo($("#ProjectTable"))
-		$("<td></td>").text(projects.id).appendTo($ta)
+		$('<td style = "cursor:pointer;" onClick = "location.href=\'/test/PmoQmo\'"></td>').text(projects.id).appendTo($ta)
 		$("<td></td>").text(projects.name).appendTo($ta)
 		$("<td></td>").text(projects.identifier).appendTo($ta)
 		$("<td></td>").text(projects.description).appendTo($ta)
@@ -91,7 +91,7 @@ $(function(){
     <!--main content start-->
       <section id="main-content">
       <section class="wrapper">
-        <h3><i class="fa fa-angle-right"></i> Projects</h3>
+        <h3><i class="fa fa-angle-right"></i> 프로젝트 품질관리</h3>
         <div class="row">
           <div class="col-md-12">
             <div class="content-panel">
